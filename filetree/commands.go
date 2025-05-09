@@ -152,7 +152,11 @@ func (m Model) GetDirectoryListingCmd(directoryName string) tea.Cmd {
 			isSymlink := fileInfo.Mode()&os.ModeSymlink != 0
 
 			if isSymlink {
-				symlinkPath, _ := filepath.EvalSymlinks(filepath.Join(directoryPath, file.Name()))
+				symlinkPath, err := filepath.EvalSymlinks(filepath.Join(directoryPath, file.Name()))
+				if err != nil {
+					// This could be due to symlinks pointing to invalid path
+					continue
+				}
 				filePath = symlinkPath
 				symlinkInfo, err := os.Stat(symlinkPath)
 				if err != nil {
