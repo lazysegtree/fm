@@ -93,7 +93,6 @@ paru -S fm-bin
 - `fm update` will update fm to the latest version
 - `fm --start-dir=/some/start/dir` will start fm in the specified directory
 - `fm --selection-path=/tmp/tmpfile` will write the selected items path to the selection path when pressing <kbd>E</kbd> and exit fm
-- `fm --start-dir=/some/dir` start fm at a specific directory
 - `fm --enable-logging=true` start fm with logging enabled
 - `fm --pretty-markdown=true` render markdown using glamour to make it look nice
 - `fm --theme=default` set the theme of fm
