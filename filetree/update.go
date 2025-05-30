@@ -173,6 +173,10 @@ func (m Model) Update(msg tea.Msg) (Model, tea.Cmd) {
 				return m, nil
 			}
 
+			if len(m.files) == 0 {
+				return m, nil
+			}
+
 			if m.files[m.Cursor].IsDirectory {
 				return m, m.GetDirectoryListingCmd(m.files[m.Cursor].Path)
 			}
